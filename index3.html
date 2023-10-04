@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loading animathion</title>
+    <style>
+        .loader {
+            width: 50px;
+            height: 100px;
+            position: relative;
+            margin: 10rem auto;
+            animation: flip 6s ease infinite;
+        }
+
+        .loader .top,
+        .loader .bottom {
+            background-image: linear-gradient(#f9a7de, #3c0533);
+            background-size: 50px 50px;
+            background-repeat: no-repeat;
+            width: 50px;
+            height: 50px;
+
+        }
+
+        .loader .top {
+            animation: top-do 6s ease infinite;
+            background-position: 0 0;
+            clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+
+        }
+
+        .loader .bottom {
+            animation: bottom-do 6s ease infinite;
+            background-position: 0 50px;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+
+        }
+
+        .loader .bottom::after {
+            content: "";
+            background-image: linear-gradient(#f9a7de, transparent);
+            width: 2px;
+            height: 50px;
+            position: absolute;
+            left: 24px;
+        }
+
+        @keyframes top-do {
+
+            95%,
+            100% {
+                background-position: 0 50px;
+            }
+        }
+
+        @keyframes bottom-do {
+
+            95%,
+            100% {
+                background-position: 0 0px;
+            }
+        }
+
+        @keyframes flip {
+
+            0%,
+            95% {transform: rotate(0deg);
+                
+            }
+           100% {transform: rotate(100deg);
+               
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader">
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </div>
+</body>
+
+</html>
